@@ -1,5 +1,5 @@
 // ---------- Config ----------
-const CONFIDENCE_THRESHOLD = 0.55;
+const CONFIDENCE_THRESHOLD = 0.65;
 const SPEAK_INTERVAL_MS = 3000;      // don't narrate more often than this
 const MAX_OBJECTS_NARRATED = 3;
 const HAZARD_CLASSES = new Set([
