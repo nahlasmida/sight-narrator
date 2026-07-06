@@ -2,7 +2,7 @@
 
 A browser-based assistive tool that watches through your camera and speaks a short, prioritized description of what's around you — built for visually impaired users, running entirely client-side.
 
-**[Live demo →](#)** *(add your deployed link here)*
+**[Live demo →] **(https://nahlasmida.github.io/sight-narrator/)**
 
 ![Sight demo](docs/demo.gif) *(add a screen recording here — see "Recording a demo" below)*
 
