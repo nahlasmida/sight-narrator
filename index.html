@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sight — Real-Time Scene Narrator</title>
+<meta name="description" content="An in-browser scene narrator for visually impaired users. Detects objects via webcam and speaks a prioritized, natural description aloud.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-name">Sight</span>
+  </div>
+  <p class="tagline">A voice for the room around you</p>
+</header>
+
+<main class="stage">
+  <div class="viewport" id="viewport">
+    <video id="video" autoplay playsinline muted></video>
+    <canvas id="overlay"></canvas>
+
+    <div class="viewport-placeholder" id="placeholder">
+      <div class="pulse-ring" aria-hidden="true"></div>
+      <p>Camera is off. Press Start to begin narrating.</p>
+    </div>
+
+    <div class="status-chip" id="statusChip" aria-live="off">
+      <span class="dot" id="statusDot"></span>
+      <span id="statusText">Idle</span>
+    </div>
+  </div>
+
+  <section class="control-row">
+    <button id="toggleBtn" class="btn-primary">Start Narrating</button>
+    <div class="mode-toggle" role="group" aria-label="Narration mode">
+      <button class="mode-btn active" data-mode="all">Everything</button>
+      <button class="mode-btn" data-mode="hazards">Hazards only</button>
+    </div>
+  </section>
+
+  <section class="caption-panel" aria-live="polite">
+    <p class="caption-label">Live narration</p>
+    <p id="captionText" class="caption-text">Press Start — I'll describe what the camera sees, out loud, as it changes.</p>
+  </section>
+
+  <section class="detections-panel">
+    <p class="caption-label">Raw detections</p>
+    <ul id="detectionList" class="detection-list">
+      <li class="detection-empty">Nothing detected yet.</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>Runs entirely in your browser. Video never leaves your device. Built with TensorFlow.js (COCO-SSD) and the Web Speech API.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.20.0/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.3/dist/coco-ssd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
